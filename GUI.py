@@ -1,7 +1,6 @@
 import tkinter
 import customtkinter
 from add_product import productos
-from GUI import App
 
 class App(customtkinter.CTk):
 
@@ -9,7 +8,6 @@ class App(customtkinter.CTk):
         super().__init__()
 
         # configure window
-        self.variable = "sin valor"
         self.title("app")
 
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.formulario_de_carga)
@@ -36,7 +34,7 @@ class App(customtkinter.CTk):
 
 
     def cargar(self):
-        print(f"{self.valor} + {self.valor1} + {self.valor2} + {self.valor3} + {self.valor4}, {self.variable}6")
+        print(f"{self.valor} + {self.valor1} + {self.valor2} + {self.valor3} + {self.valor4}, 6")
 
 
     def campo_formulario(self,ventana,row:int,column:int,columnspan:int,padx=20,pady=20,sticky = "ew",texto = ""):
@@ -44,23 +42,15 @@ class App(customtkinter.CTk):
         self.nameLabel.grid(row=row, column=column,padx=padx, pady=pady,sticky=sticky)
         self.nameEntry = customtkinter.CTkEntry(ventana,placeholder_text=texto)
         self.nameEntry.grid(row=row, column=1+column,columnspan=columnspan, padx=padx,pady=pady, sticky=sticky)
-        self.variable = self.nameEntry.get()
-        return self.variable
+        return self.nameEntry.get()
 
     def tipos_de_vestidos(self,ventana,row:int,column:int,columnspan:int,padx=20,pady=20,sticky = "ew",texto = ""):
         self.nameLabel = customtkinter.CTkLabel(ventana,text=texto)
         self.nameLabel.grid(row=row, column=column,padx=padx, pady=pady,sticky=sticky)
         self.nameCombo = customtkinter.CTkComboBox(ventana,values=["15 años","damas","novia"]).grid(row=row, column=1+column,columnspan=columnspan, padx=padx,pady=pady, sticky=sticky)
-        
-
 
     def tallas(self,ventana,row:int,column:int,columnspan:int,padx=20,pady=20,sticky = "ew",texto = ""):
         self.nameLabel = customtkinter.CTkLabel(ventana,text=texto)
         self.nameLabel.grid(row=row, column=column,padx=padx, pady=pady,sticky=sticky)
         self.nameCombo = customtkinter.CTkComboBox(ventana,values=["S","M","L","X","XL","XXL"]).grid(row=row, column=1+column,columnspan=columnspan, padx=padx,pady=pady, sticky=sticky)
 
-
-if __name__ == "__main__":
-    app = App()
-    app.geometry("300x300")
-    app.mainloop()
