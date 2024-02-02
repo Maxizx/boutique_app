@@ -23,29 +23,32 @@ class App(customtkinter.CTk):
         ventana2.title("Segunda ventana")
         ventana2.geometry("350x500")
 
+
+        # self.nameLabel = customtkinter.CTkLabel(ventana2,text="Descripcion").grid(row=0, column=0,padx=20, pady=20,sticky="ew")
+        # self.nameEntry = customtkinter.CTkEntry(ventana2,placeholder_text="descripcion").grid(row=0, column=1,columnspan=columnspan, padx=padx,pady=pady, sticky=sticky)
+        # self.variable = self.nameEntry.get()
+
         
         self.valor = self.tipos_de_vestidos(ventana2,row=0, column=0,padx=20, pady=20,sticky="ew",columnspan=3,texto="Tipo")
-        self.valor1 = self.campo_formulario(ventana2,texto="Descripcion",row=1,column=0,columnspan=3,sticky="ew")
-        self.valor2 = self.campo_formulario(ventana2,texto="Precio de Alquiler",row=2,column=0,columnspan=3,sticky="ew")
-        self.valor3 = self.campo_formulario(ventana2,texto="Precio de Venta",row=3,column=0,columnspan=3,sticky="ew")
-        self.valor4 = self.tallas(ventana2,row=4, column=0,padx=20, pady=20,sticky="ew",columnspan=3,texto="Tallas")
+        self.descripcion = self.campo_formulario(ventana2,texto="Descripcion",row=1,column=0,columnspan=3,sticky="ew")
+        self.precio_alquiler = self.campo_formulario(ventana2,texto="Precio de Alquiler",row=2,column=0,columnspan=3,sticky="ew")
+        self.precio_venta = self.campo_formulario(ventana2,texto="Precio de Venta",row=3,column=0,columnspan=3,sticky="ew")
+        self.tallas_ = self.tallas(ventana2,row=4, column=0,padx=20, pady=20,sticky="ew",columnspan=3,texto="Tallas")
 
         self.btn = customtkinter.CTkButton(ventana2, text="Cargar", command= self.cargar)
         self.btn.grid(row=5, pady=20, columnspan=3, sticky="nsew")
 
-
-
     def cargar(self):
-        print(f"{self.valor} + {self.valor1} + {self.valor2} + {self.valor3} + {self.valor4}, {self.variable}6")
+        print(f"{self.valor} + {self.descripcion.get()} + {self.precio_alquiler.get()} + {self.precio_venta.get()} + {self.tallas_}")
 
 
     def campo_formulario(self,ventana,row:int,column:int,columnspan:int,padx=20,pady=20,sticky = "ew",texto = ""):
         self.nameLabel = customtkinter.CTkLabel(ventana,text=texto)
         self.nameLabel.grid(row=row, column=column,padx=padx, pady=pady,sticky=sticky)
         self.nameEntry = customtkinter.CTkEntry(ventana,placeholder_text=texto)
-        self.nameEntry.grid(row=row, column=1+column,columnspan=columnspan, padx=padx,pady=pady, sticky=sticky)
-        self.variable = self.nameEntry.get()
-        return self.variable
+        self.nameEntry.grid(row=row, column=1+column,columnspan=columnspan, padx=padx,pady=pady, sticky="nsew")
+        # self.variable = self.nameEntry.get()
+        return self.nameEntry
 
     def tipos_de_vestidos(self,ventana,row:int,column:int,columnspan:int,padx=20,pady=20,sticky = "ew",texto = ""):
         self.nameLabel = customtkinter.CTkLabel(ventana,text=texto)

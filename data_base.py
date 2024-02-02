@@ -22,22 +22,22 @@ class db_productos:
                 lista.append(fila)
             return lista
 
-foto_ = ["vestido","traje"]
-tipos_= ["de 15 años","damas","novia"]
-fecha_= ["13/4/98","2/7/25","3/5/30"]
-descripcion_= ["es rojo con brillo","es verde con brillo","es azul con brillo"]
-talla_ = ["S","M","XXL"]
-alquiler_precio = random.randint(100,450)
-venta_precio = random.randint(100,450)
+# foto_ = ["vestido","traje"]
+# tipos_= ["de 15 años","damas","novia"]
+# fecha_= ["13/4/98","2/7/25","3/5/30"]
+# descripcion_= ["es rojo con brillo","es verde con brillo","es azul con brillo"]
+# talla_ = ["S","M","XXL"]
+# alquiler_precio = random.randint(100,450)
+# venta_precio = random.randint(100,450)
 
-foto = random.choice(foto_)
-tipos = random.choice(tipos_)
-fecha = random.choice(fecha_)
-descripcion = random.choice(descripcion_)
-talla = random.choice(talla_)
+# foto = random.choice(foto_)
+# tipos = random.choice(tipos_)
+# fecha = random.choice(fecha_)
+# descripcion = random.choice(descripcion_)
+# talla = random.choice(talla_)
 
 
-tabla = db_productos()
-tabla.crear_tabla()
+# tabla = db_productos()
+# tabla.crear_tabla()
 
-tabla.agregar_datos(foto=foto,fecha=fecha,tipo=tipos,descripcion=descripcion,talla=talla,alquiler=alquiler_precio,venta=venta_precio)
+# tabla.agregar_datos(foto=foto,fecha=fecha,tipo=tipos,descripcion=descripcion,talla=talla,alquiler=alquiler_precio,venta=venta_precio)
