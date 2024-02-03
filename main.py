@@ -23,14 +23,18 @@ class App(customtkinter.CTk):
         ventana2.title("Segunda ventana")
         ventana2.geometry("350x500")
         
-        self.tipo = self.tipos_de_vestidos(ventana2,row=0, column=0,padx=20, pady=20,sticky="ew",columnspan=3,texto="Tipo")
-        self.descripcion = self.campo_formulario(ventana2,texto="Descripcion",row=1,column=0,columnspan=3,sticky="ew")
-        self.precio_alquiler = self.campo_formulario(ventana2,texto="Precio de Alquiler",row=2,column=0,columnspan=3,sticky="ew")
-        self.precio_venta = self.campo_formulario(ventana2,texto="Precio de Venta",row=3,column=0,columnspan=3,sticky="ew")
-        self.tallas_ = self.tallas(ventana2,row=4, column=0,padx=20, pady=20,sticky="ew",columnspan=3,texto="Tallas")
+
+
+        self.tipo = self.tipos_de_vestidos(ventana2,row=0, column=0,columnspan=3,texto="Tipo")
+        self.descripcion = self.campo_formulario(ventana2,texto="Descripcion",row=1,column=0,columnspan=3)
+        self.precio_alquiler = self.campo_formulario(ventana2,texto="Precio de Alquiler",row=2,column=0,columnspan=3)
+        self.precio_venta = self.campo_formulario(ventana2,texto="Precio de Venta",row=3,column=0,columnspan=3)
+        self.tallas_ = self.tallas(ventana2,row=4, column=0,columnspan=3,texto="Tallas")
+        self.alquiler = self.estado_alquiler(ventana2,texto="alquilado ",row=5,column=0, columnspan=3)
+
 
         self.btn = customtkinter.CTkButton(ventana2, text="Cargar", command= self.cargar)
-        self.btn.grid(row=5, pady=20, columnspan=3, sticky="nsew")
+        self.btn.grid(row=6, padx=100, columnspan=2, sticky="nsew")
 
     def cargar(self):
         print(f"{self.tipo.get()} + {self.descripcion.get()} + {self.precio_alquiler.get()} + {self.precio_venta.get()} + {self.tallas_.get()}")
@@ -43,11 +47,17 @@ class App(customtkinter.CTk):
         self.nameEntry = customtkinter.CTkEntry(ventana,placeholder_text=texto)
         self.nameEntry.grid(row=row, column=1+column,columnspan=columnspan, padx=padx,pady=pady, sticky="nsew")
         return self.nameEntry
+        
 
+    def estado_alquiler(self,ventana,row:int,column:int,padx=20,pady=20,sticky = "ew",texto = "",columnspan = 3):
+        self.titulo = customtkinter.CTkLabel(ventana,text=texto)
+        self.titulo.grid(row=row, column=column,padx=padx, pady=pady,sticky=sticky)
+        self.alquilado = customtkinter.CTkCheckBox(ventana,text="verificar",onvalue=True,offvalue=False).grid(row=row, column=1+column,columnspan=columnspan, padx=padx,pady=pady, sticky="nsew")
+        return self.alquilado
 
     def tipos_de_vestidos(self,ventana,row:int,column:int,columnspan:int,padx=20,pady=20,sticky = "ew",texto = ""):
-        self.nameLabel = customtkinter.CTkLabel(ventana,text=texto)
-        self.nameLabel.grid(row=row, column=column,padx=padx, pady=pady,sticky=sticky)
+        self.palabra = customtkinter.CTkLabel(ventana,text=texto)
+        self.palabra.grid(row=row, column=column,padx=padx, pady=pady,sticky=sticky)
         self.nameCombo = customtkinter.CTkComboBox(ventana,values=["15 años","damas","novia"])
         self.nameCombo.grid(row=row, column=1+column,columnspan=columnspan, padx=padx,pady=pady)
         return self.nameCombo
@@ -55,8 +65,8 @@ class App(customtkinter.CTk):
 
 
     def tallas(self,ventana,row:int,column:int,columnspan:int,padx=20,pady=20,sticky = "ew",texto = ""):
-        self.nameLabel = customtkinter.CTkLabel(ventana,text=texto)
-        self.nameLabel.grid(row=row, column=column,padx=padx, pady=pady,sticky=sticky)
+        self.textoo = customtkinter.CTkLabel(ventana,text=texto)
+        self.textoo.grid(row=row, column=column,padx=padx, pady=pady,sticky=sticky)
         self.nameCombo = customtkinter.CTkComboBox(ventana,values=["S","M","L","X","XL","XXL"])
         self.nameCombo.grid(row=row, column=1+column,columnspan=columnspan, padx=padx,pady=pady)
         return self.nameCombo
